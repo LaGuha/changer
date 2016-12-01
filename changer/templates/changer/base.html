@@ -1,0 +1,78 @@
+{% load staticfiles %}
+    <html>
+        <head>
+            <title>Книги</title>
+            <!--<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">-->
+            <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+            <link rel="stylesheet" href="{% static 'css/css.css' %}">
+        </head>
+        <body>
+            <header>
+                <div class='container'>Супер крутой обменник</div>
+            </header>
+                <div class="line l1">
+                    <a href=#>
+                        <span class="circle l"></span><span class="l button">Главная</span>
+                    </a>
+                    <a href=#>
+                        <span class="circle r"></span><span class="r button">Личный кабинет</span>
+                    </a>
+                </div>
+                <div class="line l2">
+                    <a href=#>
+                        <span class="circle l"></span><span class="l button">О сервисе</span>
+                    </a>
+                    <a href=#>
+                        <span class="circle r"></span><span class="r button">F.A.Q.</span>
+                    </a>
+                   </div>
+                <div class="line l3">
+                    <a href=#>
+                        <span class="circle l"></span><span class="l button">Контакты</span>
+                    </a>
+                    <a href=#>
+                        <span class="circle r"></span><span class="r button">Резезрв</span>
+                    </a>
+                </div>
+                <div class='window'>
+                    <div class="menu">
+                        <a href=#>Главная</a>
+                        <a href=#>Личный кабинет</a>
+                        <a href=#>О сервисе</a>
+                        <a href=#>F.A.Q.</a>
+                        <a href=#>Контакты</a>
+                        <a href=#>Резерв</a>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <script>
+
+                left=($('body').width()-$('.line').width())/2
+                $('.line').css('left',left)
+                $(window).resize(function(){
+                     left=($('body').width()-$('.line').width())/2
+                    $('.line').css('left',left)
+                    if ($('body').width()<1200){
+                        $('.menu').css('display','flex')
+                        $('.line').css('display','none')
+                        $('header').css('width',$('body').width())
+                        $('.window').css('width',$('body').width()*0.8)
+                        $('.ord').css('order','1')
+
+
+                    }else{
+                        $('.menu').css('display','none')
+                        $('.line').css('display','block')
+                        $('header').css('width','1200px')
+                        $('.window').css('width','960px')
+                        $('.ord').css('order','0')
+                    }
+                })
+
+
+            </script>
+        </body>
+    </html>
